@@ -1,133 +1,167 @@
 /* Fonte */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,700&display=swap');
-/* Variáveis */
-/*  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,700&display=swap");
+
 :root {
   /* Paleta de cores */
---cor-principal: #2C3E50; /* Azul escuro */
---cor-destaque: #2980B9; /* Azul claro */
---cor-white: #ffffff; /* Branco */
---cor-01: #ECF0F1; /* Cinza claro */
---cor-02: #BDC3C7; /* Cinza médio */
---cor-03: #95A5A6; /* Cinza escuro */
---cor-black: #000000; /* Preto */
---cor-cinza: #7F8C8D; /* Cinza */
+  --cor-principal: #2c3e50; /* Azul escuro */
+  --cor-01: #ecf0f1; /* Cinza claro */
+  --cor-02: #bdc3c7; /* Cinza médio */
+  --cor-03: #95a5a6; /* Cinza azulado */
+  --cor-04: #34495e; /* Azul acinzentado */
+  --cor-05: #2c3e50; /* Azul escuro */
+
+  /* Sombra:  X   Y   Desfoque    Espessura   Cor */
+  --sombra: 0 0 0.5rem 0.2rem var(--cor-03);
 }
 
 /* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--cor-01);
-    color: var(--cor-black);
+  background-color: var(--cor-02);
+  color: var(--cor-05);
 }
 
 /* ===== Barra de Navegação ===== */
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    background-color: var(--cor-principal);
-    display: flex;
-    justify-content: space-between;
-    letter-spacing: 0.1rem;
-    z-index: 1000;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--cor-04);
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0.1rem;
 }
 
 nav ul {
-    list-style-type: none;
-    display: flex;
-    gap: 0.5rem;
+  list-style-type: none;
+  display: flex;
+  gap: 0.5rem;
 }
 
 nav a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--cor-white);
-    font-weight: 700;
-    padding: 0.5rem;
-    transition: 0.5s;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--cor-02);
+  font-weight: 700;
+  padding: 0.5rem;
+  transition: 0.5s;
 }
 
 nav a:hover {
-    color: var(--cor-03);
+  color: var(--cor-03);
 }
 
 .logo {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--cor-white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cor-02);
+  cursor: pointer;
 }
 
 /* ===== Cabeçalho da página ===== */
 header {
-    height: 20rem;
-    margin-top: 3.5rem;
-    background-color: var(--cor-03);
+  height: 20rem;
+  margin-top: 3.5rem;
+  background-color: var(--cor-03);
 }
 
 /* ===== Sections ===== */
 section {
-    min-height: 80vh;
-    padding: 5rem 2rem;
-
-    border: solid 2px red; /* TESTE */
+  min-height: 80vh;
+  padding: 5rem 2rem;
 }
 
-/* ===== Card do Imóvel ===== */
+/* ===== Estrutura dos Cards dos Imóveis ===== */
 #imoveis {
-    width: 96%;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 2rem;
-    margin: 2rem 0;
-
-    margin: auto;
-
-    
-    border: solid 1px green; /* TESTE */
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2rem;
 }
 
+/* Card */
 .imovel {
-    
-    border: solid 1px #0066ff; /* TESTE */
-    transition: 0.5s;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: 0.5s;
+  padding: 0.8rem;
+  background-color: var(--cor-01);
+  border: solid 1px var(--cor-03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .imovel:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-
+  transform: scale(1.02);
+  cursor: pointer;
+  box-shadow: var(--sombra);
 }
 
 .foto {
-    height: 14rem;
-    
-    border: solid 1px #1ddb00; /* TESTE */
-    width: 14rem;
-    width: 100%;
+  height: 14rem;
+  width: 100%;
 }
 
 .foto img {
-    height: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.conteudo {
+  height: auto;
+  text-align: justify;
+}
+
+.conteudo h3,
+p {
+  margin: 0.5rem auto;
+}
+
+.info {
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.valor-imovel {
+  font-size: 1.2rem;
+  margin: 1rem auto;
 }
 
 /* ===== Footer ===== */
 footer {
-    min-height: 16rem;
-    background-color: var(--cor-principal);
-    color: var(--cor-white);
-    padding: 2rem;
+  min-height: 16rem;
+  background-color: var(--cor-05);
+  color: var(--cor-03);
+  padding: 2rem;
+}
+
+form {
+  width: 40%;
+  min-height: 20rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
 }

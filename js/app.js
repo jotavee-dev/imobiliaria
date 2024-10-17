@@ -1,3 +1,4 @@
+
 // Link do "Banco de Dados" online
 const urlAPI = "https://66a29be8967c89168f20a323.mockapi.io/api/users";
 
@@ -16,7 +17,7 @@ fetch(urlAPI)
         }
     })
     .catch((erro) => {
-        console.error("Erro", erro);
+        console.error("Erro", erdadosro);
         alert("Não foi possível carregar os dados");
     });
 
@@ -27,7 +28,7 @@ function criarCardImoveis(listaImoveis) {
 
         // Cria o "card" do imóvel
         const cardImovel = document.createElement("article");
-        cardImovel.setAttribute("id", imovel.id);
+        cardImovel.setAttribute('id', imovel.id);
         cardImovel.classList.add("imovel");
         document.querySelector("#imoveis").appendChild(cardImovel);
 
@@ -80,5 +81,23 @@ function criarCardImoveis(listaImoveis) {
             currency: "BRL",
         })}`;
         divDados.appendChild(divValor);
+
+        const btnExcluir = document.createElement('button');
+        btnExcluir.setAttribute('id', imovel.id);
+        btnExcluir.setAttribute('onclick', 'excluirImovel(this)');
+        btnExcluir.innerHTML = '🗑️';
+        divDados.appendChild(btnExcluir);
     });
+}
+
+function excluirImovel(imovel) {
+    fetch(`${urlAPI}/${imovel.id}`, {
+        method: 'DELETE'
+    })
+        .then(() => {
+            location.reload();
+        })
+        .catch(erro => {
+            console.error('Erro: ', erro); // LOG
+        });
 }
