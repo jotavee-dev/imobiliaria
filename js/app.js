@@ -1,57 +1,84 @@
-const listaImoveis = [
-    {
-        id: 1,
-        titulo: "Apartamento Luxuoso",
-        descricao: "Apartamento com 3 quartos, 2 banheiros, sala ampla e cozinha moderna.",
-        valor: 500000,
-        area: 120,
-        quartos: 3,
-        tipo: "Apartamento",
-        localizacao: "Centro",
-        mapa: 'link',
-        vendaAluguel: "Venda",
-        finalidade: "Residencial",
-        fotos: [
-            "foto1.jpg", // foto principal
-            "foto2.jpg",
-            "foto3.jpg"
-        ]
-    },
-    {
-        id: 2,
-        titulo: "Casa de Campo",
-        descricao: "Casa espaçosa com 4 quartos, 3 banheiros, piscina e jardim.",
-        valor: 750000,
-        area: 300,
-        quartos: 4,
-        tipo: "Casa",
-        localizacao: "Zona Rural",
-        mapa: 'link',
-        vendaAluguel: "Venda",
-        finalidade: "Residencial",
-        fotos: [
-            "foto1.jpg",
-            "foto2.jpg",
-            "foto3.jpg"
-        ]
-    },
-    {
-        id: 3,
-        titulo: "Sala Comercial",
-        descricao: "Sala comercial no centro da cidade, ideal para escritórios.",
-        valor: 2000,
-        area: 50,
-        quartos: 0,
-        tipo: "Comercial",
-        localizacao: "Centro",
-        mapa: 'link',
-        vendaAluguel: "Aluguel",
-        finalidade: "Comercial",
-        fotos: [
-            "foto1.jpg",
-            "foto2.jpg"
-        ]
-    }
-];
+// Link do "Banco de Dados" online
+const urlAPI = "https://66a29be8967c89168f20a323.mockapi.io/api/users";
 
-console.log(imoveis);
+// Acessa a API com os dados
+fetch(urlAPI)
+    // Retorna os dados encontrados e converte para JSON
+    .then(resultado => resultado.json())
+
+    // Manipula os dados retornados
+    .then(listaImoveis => {
+        if (listaImoveis.length == 0) {
+            document.querySelector("#imoveis").innerHTML = 'Não há imóveis cadastrados';
+        
+        } else {
+            criarCardImoveis(listaImoveis);
+        }
+    })
+    .catch((erro) => {
+        console.error("Erro", erro);
+        alert("Não foi possível carregar os dados");
+    });
+
+function criarCardImoveis(listaImoveis) {
+    // Percorre a Lista de Imóveis
+    listaImoveis.forEach(imovel => {
+        // console.log(imovel);
+
+        // Cria o "card" do imóvel
+        const cardImovel = document.createElement("article");
+        cardImovel.setAttribute("id", imovel.id);
+        cardImovel.classList.add("imovel");
+        document.querySelector("#imoveis").appendChild(cardImovel);
+
+        // Foto
+        const divFoto = document.createElement("div");
+        divFoto.classList.add("foto");
+        cardImovel.appendChild(divFoto); // Adiciona a foto no card
+
+        const img = document.createElement("img");
+        img.setAttribute("src", imovel.fotos[0]);
+        divFoto.appendChild(img);
+
+        // Conteúdo
+        const divConteudo = document.createElement("div");
+        divConteudo.classList.add("conteudo");
+        cardImovel.appendChild(divConteudo); // Adiciona o conteúdo no card
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = imovel.titulo;
+        divConteudo.appendChild(titulo);
+
+        const descricao = document.createElement("p");
+        descricao.textContent = imovel.descricao;
+        divConteudo.appendChild(descricao);
+
+        // Info
+        const divInfo = document.createElement("div");
+        divInfo.classList.add("info");
+        cardImovel.appendChild(divInfo); // Adiciona a info no card
+
+        const divDados = document.createElement("div");
+        divInfo.appendChild(divDados);
+
+        const localizacao = document.createElement("div");
+        localizacao.textContent = `Localização: ${imovel.localizacao}`;
+        divDados.appendChild(localizacao);
+
+        const quartos = document.createElement("span");
+        quartos.textContent = `Quartos: ${imovel.quartos} | `;
+        divDados.appendChild(quartos);
+
+        const area = document.createElement("span");
+        area.textContent = `Área: ${imovel.area} m²`;
+        divDados.appendChild(area);
+
+        const divValor = document.createElement("div");
+        divValor.classList.add("valor-imovel");
+        divValor.textContent = `${imovel.valor.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        })}`;
+        divDados.appendChild(divValor);
+    });
+}

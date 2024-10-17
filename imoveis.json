@@ -1,0 +1,44 @@
+[
+  {
+    "titulo": "Triplex de luxo",
+    "descricao": "Triplex de 150m², 3 quartos, 2 banheiros, 1 suíte, 2 vagas de garagem, piscina, churrasqueira, sauna, salão de festas, academia, quadra de esportes, playground, portaria 24h.",
+    "valor": 1500000,
+    "area": 150,
+    "quartos": 4,
+    "tipo": "apartamento",
+    "localizacao": "R. Dom Aureliano Matos, 100 - Centro, Itapipoca - CE",
+    "mapa": "<iframe src='https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1729104224322!5m2!1spt-BR!2sbr!6m8!1m7!1s_d0zG4LSO_OwXFF5NRazKQ!2m2!1d-3.501608906592106!2d-39.58167788870224!3f110.29144011555965!4f2.230646706475369!5f0.7820865974627469' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>",
+    "venda_aluguel": "venda",
+    "finalidade": "residencial",
+    "fotos": [
+      "https://id725a57.s3.amazonaws.com/fotos/i00008801.jpg",
+      "https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://img.freepik.com/fotos-premium/uma-casa-branca-encantadora-com-um-telhado-vermelho-brilhante-e-uma-janela-azul_1258321-339.jpg?w=360",
+      "link4",
+      "link5"
+    ],
+    "status": false
+  },
+  [
+    {
+      "titulo": "Casa",
+      "descricao": "Casa pequena de 50m², 2 quartos, 1 banheiro, 1 vaga de garagem, quintal, varanda.",
+      "valor": 1000,
+      "area": 95,
+      "quartos": 2,
+      "tipo": "casa",
+      "localizacao": "Rua Frei Cassiano, 946 - Boa vista, Itapipoca - CE",
+      "mapa": "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4205.373750587223!2d-39.578207489212645!3d-3.494255242011698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c0492b090b73d9%3A0xb9d9cc2fe9dc7352!2sR.%20Frei%20Cassiano%20-%20Itapipoca%2C%20CE%2C%2062540-000%2C%20Brasil!5e1!3m2!1spt-BR!2sus!4v1729104541766!5m2!1spt-BR!2sus' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>",
+      "venda_aluguel": "aluguel",
+      "finalidade": "residencial",
+      "fotos": [
+        "https://id725a57.s3.amazonaws.com/fotos/i00009023.jpeg",
+        "https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://img.freepik.com/fotos-premium/uma-casa-branca-encantadora-com-um-telhado-vermelho-brilhante-e-uma-janela-azul_1258321-339.jpg?w=360",
+        "link4",
+        "link5"
+      ],
+      "status": false
+    }
+  ]
+]
